@@ -16,7 +16,7 @@ public class TeamService {
     }
 
     public List<Team> findAll() {
-        List<Team> teams = teamRepository.findAllJoinFetch();
+        List<Team> teams = teamRepository.findAllEntityGraph();
         extractMembers(teams);
         return teams;
     }
