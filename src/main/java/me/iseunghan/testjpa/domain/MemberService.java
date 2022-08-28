@@ -2,6 +2,7 @@ package me.iseunghan.testjpa.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -42,4 +43,27 @@ public class MemberService {
         System.out.println("-----------------");
         teamService.트랜잭션_X_메소드();
     }
+
+    public void call_내부_트랜잭션_호출함_1_without_Tx() {
+        System.out.println("-----------------");
+        memberRepository.findById(1L);
+        called_내부_트랜잭션_호출해도_트랜잭션_동작안함();
+        System.out.println("-----------------");
+    }
+
+    @Transactional
+    public void call_내부_트랜잭션_호출함_2_with_Tx() {
+        System.out.println("call_내부_트랜잭션_호출함");
+        memberRepository.findById(1L);
+        called_내부_트랜잭션_호출해도_트랜잭션_동작안함();
+        System.out.println("--------------------");
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void called_내부_트랜잭션_호출해도_트랜잭션_동작안함() {
+        System.out.println("called_내부_트랜잭션_호출해도_트랜잭션_동작안함");
+        memberRepository.findById(1L);
+        System.out.println("--------------------");
+    }
+
 }

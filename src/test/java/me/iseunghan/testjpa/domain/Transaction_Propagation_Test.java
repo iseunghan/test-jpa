@@ -1,5 +1,6 @@
 package me.iseunghan.testjpa.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,23 @@ public class Transaction_Propagation_Test {
         // 트랜잭션 붙은 메소드 -> 안 붙은 메소드 호출
         memberService.트랜잭션_O_메소드가_트랜잭션_X_메소드_호출();
     }
+
+    @DisplayName("동일 클래스) 트랜잭션이 붙지 않은 메소드에서 -> 트랜잭션이 붙은 메소드 호출 시 트랜잭션 동작 안함!")
+    @Test
+    void call_inner_transaction_method1() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_내부_트랜잭션_호출함_1_without_Tx();
+    }
+
+    @DisplayName("동일 클래스) 트랜잭션이 붙은 메소드에서 -> 트랜잭션이 붙은 내부 메소드 호출 시 트랜잭션 동작 안함!")
+    @Test
+    void call_inner_transaction_method2() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_내부_트랜잭션_호출함_2_with_Tx();
+    }
+
 }
