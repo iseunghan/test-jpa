@@ -66,4 +66,31 @@ public class MemberService {
         System.out.println("--------------------");
     }
 
+    /**
+     * 트랜잭션 적용 -> 트랜잭션 적용 (전파속성 REQUIRED_NEW)
+     */
+    @Transactional
+    public void call_REQUIRED_NEW_Tx() {
+        System.out.println("----------------");
+        memberRepository.findById(1L);
+        teamService.매번_새로운_트랜잭션_생성();
+        System.out.println("----------------");
+    }
+
+    /**
+     * (A)트랜잭션 적용 -> (B)트랜잭션 적용 (전파속성 REQUIRED_NEW)
+     * A,B 서로 별도의 트랜잭션 이므로 B에서 예외발생 시 A에게 영향 주지 않음.
+     */
+    @Transactional
+    public void call_REQUIRED_NEW_Tx_and_Exception() {
+        System.out.println("----------------");
+        memberRepository.save(new Member());
+        try {
+            teamService.매번_새로운_트랜잭션_생성_예외발생();
+        } catch (Exception e) {
+            System.out.println("잡았다.");
+        }
+        System.out.println("----------------");
+    }
+
 }

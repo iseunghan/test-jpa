@@ -2,6 +2,8 @@ package me.iseunghan.testjpa.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,4 +37,27 @@ public class TeamService {
         System.out.println("-----------------");
         System.out.println("this_is_not_transaction_method");
     }
+
+    /**
+     * 트랜잭션이 있더라도 무조건 새로 생성
+     */
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void 매번_새로운_트랜잭션_생성() {
+        System.out.println("REQUIRES_NEW---------------");
+        memberRepository.findById(1L);
+        System.out.println("REQUIRES_NEW---------------");
+    }
+
+    /**
+     * 트랜잭션이 있더라도 무조건 새로 생성
+     * 분리된 트랜잭션이여서 부모 트랜잭션에 영향을 끼치지 않음.
+     */
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void 매번_새로운_트랜잭션_생성_예외발생() {
+        System.out.println("REQUIRES_NEW---------------");
+        memberRepository.save(new Member());    // roll-back
+        System.out.println("REQUIRES_NEW---------------");
+        throw new RuntimeException();
+    }
+
 }

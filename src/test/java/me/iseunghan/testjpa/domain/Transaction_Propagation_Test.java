@@ -69,4 +69,22 @@ public class Transaction_Propagation_Test {
         memberService.call_내부_트랜잭션_호출함_2_with_Tx();
     }
 
+    @DisplayName("REQUIRED_NEW 속성 테스트")
+    @Test
+    void test_REQUIRED_NEW() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_REQUIRED_NEW_Tx();
+    }
+
+    @DisplayName("REQUIRED_NEW 속성 예외 발생 테스트")
+    @Test
+    void test_Exception_REQUIRED_NEW() {
+        // given
+        memberRepository.save(new Member());    // save success
+
+        memberService.call_REQUIRED_NEW_Tx_and_Exception(); // exception
+    }
+
 }

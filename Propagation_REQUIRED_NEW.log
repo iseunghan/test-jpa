@@ -1,0 +1,143 @@
+2022-08-28 21:24:16.657 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-08-28 21:24:16.658 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1217002426<open>)] for JPA transaction
+2022-08-28 21:24:16.661 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2022-08-28 21:24:16.661 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : begin
+2022-08-28 21:24:16.669 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2e1c8027]
+2022-08-28 21:24:16.669 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2022-08-28 21:24:16.692 DEBUG 60484 --- [           main] org.hibernate.SQL                        :
+    call next value for hibernate_sequence
+Hibernate:
+    call next value for hibernate_sequence
+2022-08-28 21:24:16.701 DEBUG 60484 --- [           main] o.h.id.enhanced.SequenceStructure        : Sequence value obtained: 1
+2022-08-28 21:24:16.701 DEBUG 60484 --- [           main] o.h.r.j.i.ResourceRegistryStandardImpl   : HHH000387: ResultSet's statement was not registered
+2022-08-28 21:24:16.704 DEBUG 60484 --- [           main] o.h.e.i.AbstractSaveEventListener        : Generated identifier: 1, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+2022-08-28 21:24:16.715 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]
+2022-08-28 21:24:16.715 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-08-28 21:24:16.716 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1217002426<open>)]
+2022-08-28 21:24:16.716 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : committing
+2022-08-28 21:24:16.716 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Processing flush-time cascades
+2022-08-28 21:24:16.716 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Dirty checking collections
+2022-08-28 21:24:16.721 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+2022-08-28 21:24:16.722 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2022-08-28 21:24:16.723 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : Listing entities:
+2022-08-28 21:24:16.724 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : me.iseunghan.testjpa.domain.Member{name=null, id=1, team=null}
+2022-08-28 21:24:16.726 DEBUG 60484 --- [           main] org.hibernate.SQL                        :
+    insert
+    into
+        member
+        (name, team_id, id)
+    values
+        (?, ?, ?)
+Hibernate:
+    insert
+    into
+        member
+        (name, team_id, id)
+    values
+        (?, ?, ?)
+2022-08-28 21:24:16.733 TRACE 60484 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [VARCHAR] - [null]
+2022-08-28 21:24:16.734 TRACE 60484 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [2] as [BIGINT] - [null]
+2022-08-28 21:24:16.734 TRACE 60484 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [3] as [BIGINT] - [1]
+2022-08-28 21:24:16.738 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager [SessionImpl(1217002426<open>)] after transaction
+2022-08-28 21:24:16.741 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [me.iseunghan.testjpa.domain.MemberService.call_REQUIRED_NEW_Tx]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-08-28 21:24:16.741 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1697202759<open>)] for JPA transaction
+2022-08-28 21:24:16.741 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2022-08-28 21:24:16.741 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : begin
+2022-08-28 21:24:16.742 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@4a7ac98b]
+2022-08-28 21:24:16.742 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [me.iseunghan.testjpa.domain.MemberService.call_REQUIRED_NEW_Tx]
+----------------
+2022-08-28 21:24:16.761 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1697202759<open>)] for JPA transaction
+2022-08-28 21:24:16.761 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Participating in existing transaction
+2022-08-28 21:24:16.761 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+2022-08-28 21:24:16.768 DEBUG 60484 --- [           main] org.hibernate.SQL                        :
+    select
+        member0_.id as id1_0_0_,
+        member0_.name as name2_0_0_,
+        member0_.team_id as team_id3_0_0_
+    from
+        member member0_
+    where
+        member0_.id=?
+Hibernate:
+    select
+        member0_.id as id1_0_0_,
+        member0_.name as name2_0_0_,
+        member0_.team_id as team_id3_0_0_
+    from
+        member member0_
+    where
+        member0_.id=?
+2022-08-28 21:24:16.770 TRACE 60484 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2022-08-28 21:24:16.773 DEBUG 60484 --- [           main] l.p.e.p.i.EntityReferenceInitializerImpl : On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+2022-08-28 21:24:16.779 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Resolving attributes for [me.iseunghan.testjpa.domain.Member#1]
+2022-08-28 21:24:16.779 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Processing attribute `name` : value = null
+2022-08-28 21:24:16.779 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Attribute (`name`)  - enhanced for lazy-loading? - false
+2022-08-28 21:24:16.779 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Processing attribute `team` : value = null
+2022-08-28 21:24:16.779 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Attribute (`team`)  - enhanced for lazy-loading? - false
+2022-08-28 21:24:16.780 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Done materializing entity [me.iseunghan.testjpa.domain.Member#1]
+2022-08-28 21:24:16.781 DEBUG 60484 --- [           main] .l.e.p.AbstractLoadPlanBasedEntityLoader : Done entity load : me.iseunghan.testjpa.domain.Member#1
+2022-08-28 21:24:16.781 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+2022-08-28 21:24:16.781 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1697202759<open>)] for JPA transaction
+2022-08-28 21:24:16.781 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Suspending current transaction, creating new transaction with name [me.iseunghan.testjpa.domain.TeamService.매번_새로운_트랜잭션_생성]
+2022-08-28 21:24:16.782 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Opened new EntityManager [SessionImpl(1228034255<open>)] for JPA transaction
+2022-08-28 21:24:16.784 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2022-08-28 21:24:16.785 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : begin
+2022-08-28 21:24:16.788 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@24888d8b]
+2022-08-28 21:24:16.789 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [me.iseunghan.testjpa.domain.TeamService.매번_새로운_트랜잭션_생성]
+REQUIRES_NEW---------------
+2022-08-28 21:24:16.803 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1228034255<open>)] for JPA transaction
+2022-08-28 21:24:16.803 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Participating in existing transaction
+2022-08-28 21:24:16.803 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Getting transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+2022-08-28 21:24:16.803 DEBUG 60484 --- [           main] org.hibernate.SQL                        :
+    select
+        member0_.id as id1_0_0_,
+        member0_.name as name2_0_0_,
+        member0_.team_id as team_id3_0_0_
+    from
+        member member0_
+    where
+        member0_.id=?
+Hibernate:
+    select
+        member0_.id as id1_0_0_,
+        member0_.name as name2_0_0_,
+        member0_.team_id as team_id3_0_0_
+    from
+        member member0_
+    where
+        member0_.id=?
+2022-08-28 21:24:16.807 TRACE 60484 --- [           main] o.h.type.descriptor.sql.BasicBinder      : binding parameter [1] as [BIGINT] - [1]
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] l.p.e.p.i.EntityReferenceInitializerImpl : On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Resolving attributes for [me.iseunghan.testjpa.domain.Member#1]
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Processing attribute `name` : value = null
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Attribute (`name`)  - enhanced for lazy-loading? - false
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Processing attribute `team` : value = null
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Attribute (`team`)  - enhanced for lazy-loading? - false
+2022-08-28 21:24:16.808 DEBUG 60484 --- [           main] o.h.engine.internal.TwoPhaseLoad         : Done materializing entity [me.iseunghan.testjpa.domain.Member#1]
+2022-08-28 21:24:16.811 DEBUG 60484 --- [           main] .l.e.p.AbstractLoadPlanBasedEntityLoader : Done entity load : me.iseunghan.testjpa.domain.Member#1
+2022-08-28 21:24:16.812 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]
+REQUIRES_NEW---------------
+2022-08-28 21:24:16.812 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [me.iseunghan.testjpa.domain.TeamService.매번_새로운_트랜잭션_생성]
+2022-08-28 21:24:16.812 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-08-28 21:24:16.813 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1228034255<open>)]
+2022-08-28 21:24:16.813 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : committing
+2022-08-28 21:24:16.813 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Processing flush-time cascades
+2022-08-28 21:24:16.814 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Dirty checking collections
+2022-08-28 21:24:16.814 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2022-08-28 21:24:16.814 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2022-08-28 21:24:16.814 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : Listing entities:
+2022-08-28 21:24:16.814 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : me.iseunghan.testjpa.domain.Member{name=null, id=1, team=null}
+2022-08-28 21:24:16.815 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager [SessionImpl(1228034255<open>)] after transaction
+2022-08-28 21:24:16.815 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Resuming suspended transaction after completion of inner transaction
+----------------
+2022-08-28 21:24:16.815 TRACE 60484 --- [           main] o.s.t.i.TransactionInterceptor           : Completing transaction for [me.iseunghan.testjpa.domain.MemberService.call_REQUIRED_NEW_Tx]
+2022-08-28 21:24:16.815 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1697202759<open>)]
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.h.e.t.internal.TransactionImpl         : committing
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Processing flush-time cascades
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Dirty checking collections
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.h.e.i.AbstractFlushingEventListener    : Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : Listing entities:
+2022-08-28 21:24:16.816 DEBUG 60484 --- [           main] o.hibernate.internal.util.EntityPrinter  : me.iseunghan.testjpa.domain.Member{name=null, id=1, team=null}
+2022-08-28 21:24:16.817 DEBUG 60484 --- [           main] o.s.orm.jpa.JpaTransactionManager        : Closing JPA EntityManager [SessionImpl(1697202759<open>)] after transaction
