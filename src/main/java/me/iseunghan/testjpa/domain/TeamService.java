@@ -30,7 +30,8 @@ public class TeamService {
 
     public void 트랜잭션_X_메소드() {
         System.out.println("-----------------");
-        memberRepository.findById(1L);
+        Member member = memberRepository.findById(2L).get();
+        System.out.println(member.getTeam().getName()); // Team Lazy 로딩
         System.out.println("-----------------");
         System.out.println("this_is_not_transaction_method");
     }
