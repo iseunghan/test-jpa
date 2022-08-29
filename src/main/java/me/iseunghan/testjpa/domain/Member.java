@@ -22,6 +22,11 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public void updateTeam(Team team) {
         this.team = team;
         team.addMember(this);
