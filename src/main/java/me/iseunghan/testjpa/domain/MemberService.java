@@ -93,4 +93,14 @@ public class MemberService {
         System.out.println("----------------");
     }
 
+    /**
+     * 트랜잭션 적용 -> 트랜잭션 적용 (전파속성 NOT_SUPPORTED)
+     */
+    @Transactional
+    public void call_NOT_SUPPORTED_Tx() {
+        System.out.println("----------------");
+        memberRepository.findById(1L);
+        teamService.기존_트랜잭션_중지_후_트랜잭션_없이_진행();
+        System.out.println("----------------");
+    }
 }

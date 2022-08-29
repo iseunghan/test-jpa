@@ -60,4 +60,13 @@ public class TeamService {
         throw new RuntimeException();
     }
 
+    /**
+     * 트랜잭션이 있더라도 강제로 없이 진행
+     */
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void 기존_트랜잭션_중지_후_트랜잭션_없이_진행() {
+        System.out.println("NOT_SUPPORTED---------------");
+        memberRepository.findById(1L);
+        System.out.println("NOT_SUPPORTED---------------");
+    }
 }

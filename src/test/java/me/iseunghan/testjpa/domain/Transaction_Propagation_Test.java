@@ -87,4 +87,12 @@ public class Transaction_Propagation_Test {
         memberService.call_REQUIRED_NEW_Tx_and_Exception(); // exception
     }
 
+    @DisplayName("NOT_SUPPORTED 속성 테스트")
+    @Test
+    void test_NOT_SUPPORTED() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_NOT_SUPPORTED_Tx();
+    }
 }
