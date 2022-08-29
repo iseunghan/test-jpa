@@ -69,4 +69,25 @@ public class TeamService {
         memberRepository.findById(1L);
         System.out.println("NOT_SUPPORTED---------------");
     }
+
+    /**
+     * 트랜잭션이 있더라도 강제로 없이 진행 + Exception 발생
+     */
+    @Transactional(propagation = Propagation.NOT_SUPPORTED)
+    public void 무조건_트랜잭션_없이_진행_Ex() {
+        System.out.println("NOT_SUPPORTED---------------");
+        memberRepository.findById(1L);
+        System.out.println("NOT_SUPPORTED---------------");
+        throw new RuntimeException();
+    }
+
+    /**
+     * 기존 트랜잭션이 존재하면 중첩 트랜잭션으로 실행, 없다면 새로 생성 (REQUIRED 와 동일)
+     */
+    @Transactional(propagation = Propagation.NESTED)
+    public void 중첩된_트랜잭션_실행() {
+        System.out.println("NESTED---------------");
+        memberRepository.findById(1L);
+        System.out.println("NESTED---------------");
+    }
 }

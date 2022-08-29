@@ -95,4 +95,37 @@ public class Transaction_Propagation_Test {
 
         memberService.call_NOT_SUPPORTED_Tx();
     }
+
+    @DisplayName("NOT_SUPPORTED 속성 테스트")
+    @Test
+    void test_NOT_SUPPORTED_and_Ex() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_NOT_SUPPORTED_Tx_and_Ex();
+    }
+
+    @DisplayName("NESTED 속성 테스트")
+    @Test
+    void test_NESTED() {
+        // given
+        memberRepository.save(new Member());
+
+        memberService.call_NESTED_Tx();
+    }
+
+    @Autowired
+    private TestService testService;
+
+    @DisplayName("클래스 레벨 vs 메소드 레벨 1")
+    @Test
+    void test1() {
+        testService.REQUIRED_메소드();
+    }
+
+    @DisplayName("클래스 레벨 vs 메소드 레벨 2")
+    @Test
+    void test2() {
+        testService.트랜잭션_X_메소드();
+    }
 }

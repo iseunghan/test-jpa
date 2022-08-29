@@ -103,4 +103,28 @@ public class MemberService {
         teamService.기존_트랜잭션_중지_후_트랜잭션_없이_진행();
         System.out.println("----------------");
     }
+
+    /**
+     * 트랜잭션 적용 -> 트랜잭션 적용 (전파속성 NOT_SUPPORTED)
+     * Exception 처리 시 -> 부모 트랜잭션 롤백?
+     */
+    @Transactional
+    public void call_NOT_SUPPORTED_Tx_and_Ex() {
+        System.out.println("----------------");
+        memberRepository.save(new Member());
+        teamService.무조건_트랜잭션_없이_진행_Ex();
+        System.out.println("----------------");
+    }
+
+    /**
+     * 트랜잭션 적용 -> 트랜잭션 적용 (전파속성 NESTED)
+     * 기존 트랜잭션이 존재하면 중첩 트랜잭션으로 실행, 없다면 새로 생성 (REQUIRED 와 동일)
+     */
+    @Transactional
+    public void call_NESTED_Tx() {
+        System.out.println("----------------");
+        memberRepository.findById(1L);
+        teamService.중첩된_트랜잭션_실행();
+        System.out.println("----------------");
+    }
 }
