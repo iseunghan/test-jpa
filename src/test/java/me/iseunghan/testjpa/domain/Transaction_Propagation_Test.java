@@ -27,7 +27,7 @@ public class Transaction_Propagation_Test {
     void 트랜잭션_X_메소드에서_트랜잭션_X_메소드_호출시_영속성컨텍스트_공유X_테스트() {
         // given
         System.out.println("-----------------");
-        memberRepository.save(new Member(1L, "member"));
+        memberRepository.save(new Member("member"));
         System.out.println("-----------------");
 
         // 트랜잭션 붙은 메소드 -> 안 붙은 메소드 호출
@@ -39,10 +39,9 @@ public class Transaction_Propagation_Test {
     void 트랜잭션_O_메소드에서_트랜잭션_X_메소드_호출시_영속성컨텍스트_공유O_테스트() {
         // given
         System.out.println("-----------------");
-        Team team1 = new Team();
-        team1.setName("team");
-        Member member = new Member(null, "member", team1);
-        team1.setMembers(List.of(member));
+        Team team1 = new Team("team");
+        Member member = new Member("member", team1);
+        team1.addMember(member);
         Team team = teamRepository.save(team1);
 
         System.out.println("-----------------");

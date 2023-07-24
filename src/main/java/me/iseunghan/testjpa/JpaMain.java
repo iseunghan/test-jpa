@@ -20,15 +20,15 @@ public class JpaMain {
         tx.begin();
 
         try {
-            Team team = new Team();
-            team.setName("test Team");
+            Team team = new Team("test Team");
 //            em.persist(team);
 //            em.flush();
 
-            Member member = new Member(null, "member", team);
-            Member member2 = new Member(null, "member2", team);
+            Member member = new Member("member", team);
+            Member member2 = new Member("member2", team);
 
-            team.setMembers(List.of(member, member2));
+            team.addMember(member);
+            team.addMember(member2);
 
             System.out.println("------------------1------------------");
             em.persist(team);

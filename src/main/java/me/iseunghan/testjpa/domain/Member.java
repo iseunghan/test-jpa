@@ -1,16 +1,12 @@
 package me.iseunghan.testjpa.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-@Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Member {
 
     @Id @GeneratedValue
@@ -22,13 +18,16 @@ public class Member {
     @JoinColumn(name = "TEAM_ID")
     private Team team;
 
-    public Member(Long id, String name) {
-        this.id = id;
+    public Member(String name) {
         this.name = name;
+    }
+
+    public Member(String name, Team team) {
+        this.name = name;
+        this.team = team;
     }
 
     public void updateTeam(Team team) {
         this.team = team;
-        team.addMember(this);
     }
 }
